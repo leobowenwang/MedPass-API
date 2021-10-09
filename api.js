@@ -1,10 +1,9 @@
 const express = require("express");
 const app = express();
-const { IP, PORT } = require("./address.json");
 
 app.use(express.json());
 
-app.listen(PORT, IP, () => console.log("API running on " + IP + ":" + PORT));
+app.listen(process.env.PORT, 5000, () => console.log("API running on " + process.env.PORT + ":" + 5000));
 
 app.get("/api/sensor", (req, res) => {
   res.status(200).send({
