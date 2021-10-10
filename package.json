@@ -1,14 +1,11 @@
 {
-  "name": "api",
+  "name": "medpass-api",
   "version": "1.0.0",
-  "description": "```\r npm install express --save\r ```",
-  "main": "api.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
+  "main": "server.js",
+  "author": "leo bowen wang, sebastia chmel",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "aws-sdk": "2.874.0",
+    "express": "4.17.1"
   }
 }
