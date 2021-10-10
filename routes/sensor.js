@@ -29,7 +29,7 @@ router.get('/all', async (req, res) => {
   try {
     const allData = await scanDynamoRecords(params, []);
     const body = {
-      products: allData
+      sensors: allData
     }
     res.json(body);
   } catch(error) {
