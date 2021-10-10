@@ -43,7 +43,7 @@ router.post('/', async (req, res) => {
     TableName: dynamodbTableName,
     Item: req.body
   }
-  await dynamodb.put(params).promise().then(() => {
+  await dynamodb.post(params).promise().then(() => {
     const body = {
       Operation: 'SAVE',
       Message: 'SUCCESS',
