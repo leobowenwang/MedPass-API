@@ -2,10 +2,11 @@
   "name": "medpass-api",
   "version": "1.0.0",
   "main": "server.js",
-  "author": "leo bowen wang, sebastia chmel",
+  "author": "leo bowen wang, sebastian chmel",
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "2.874.0",
-    "express": "4.17.1"
+    "express": "4.17.1",
+    "jsonwebtoken": "^8.5.1"
   }
 }

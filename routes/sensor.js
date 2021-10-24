@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const AWS = require('aws-sdk');
+const jwt = require('jsonwebtoken');
+
 AWS.config.update({
   region: 'us-east-2'
 });
@@ -38,7 +40,7 @@ router.get('/all', async (req, res) => {
   }
 })
 
-router.post('/', async (req, res) => {
+router.post('/', authenticateToken, async (req, res) => {
   const params = {
     TableName: dynamodbTableName,
     Item: req.body
@@ -68,6 +70,19 @@ async function scanDynamoRecords(scanParams, itemArray) {
   } catch(error) {
     throw new Error(error);
   }
+}
+
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization']
+  const token = authHeader && authHeader.split(' ')[1]
+  if (token == null) return res.sendStatus(401)
+
+  jwt.verify(token, process.env.ACCESS_TOKEN, (err, user) => {
+    console.log(err)
+    if (err) return res.sendStatus(403)
+    req.user = user
+    next()
+  })
 }
 
 module.exports = router;
