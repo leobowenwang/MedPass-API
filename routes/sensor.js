@@ -18,10 +18,7 @@ router.get('/:id', async (req, res) => {
     }
   }
   await dynamodb.get(params).promise().then(response => {
-    const body = {
-      sensor: response.Item
-    }
-    res.json(body);
+    res.json(response.Item);
   }, error => {
     console.error('Oh no.', error);
     res.status(500).send(error);
