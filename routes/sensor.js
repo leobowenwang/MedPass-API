@@ -9,11 +9,12 @@ AWS.config.update({
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 const dynamodbTableName = 'medpass-api';
 
-router.get('/', async (req, res) => {
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
   const params = {
     TableName: dynamodbTableName,
     Key: {
-      'sensorId': req.query.sensorId
+      'sensorId': id
     }
   }
   await dynamodb.get(params).promise().then(response => {
