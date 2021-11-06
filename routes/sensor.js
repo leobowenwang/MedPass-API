@@ -14,7 +14,7 @@ router.get('/:id', async (req, res) => {
   const params = {
     TableName: dynamodbTableName,
     Key: {
-      'sensorId': id
+      'id': id
     }
   }
   await dynamodb.get(params).promise().then(response => {
