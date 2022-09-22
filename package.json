@@ -5,7 +5,7 @@
   "author": "leo bowen wang, sebastian chmel",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "2.1221.0",
+    "aws-sdk": "2.1222.0",
     "express": "4.18.1",
     "jsonwebtoken": "^8.5.1"
   }
